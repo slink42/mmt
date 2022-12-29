@@ -1,0 +1,18 @@
+connection: sd_card # Connect to directly to GoPro via USB
+input: D:\ # Ip address of GoPro connected via ethernet over usb. Use `mmt.exe list` to view connection details  for IP address in use in your connection
+output: C:\Users\UserName\Videos # Output path root.
+camera: gopro  # Camera model
+#prefix: "My" # Prefix to put infront of device name
+location: # Details fo output folder structure
+  format: 1 #  # Different location formats supported: 1 (City State Country), 2 (Country), 3 (Suburb State Country) and 4 (City Suburb State Country) (default 1)
+  fallback: "Unknown Location" # Leave empty to not make a folder for ungeolocated footage
+  order: # Order of subfolder heirachy. After lowest level is Photo/Video folder containing output media files.
+  - date
+  - location
+# This config can be referenced using a command similar to the following:
+#
+# go run .\main.go import --config ".\examples\mmt-import-from-sd.yml" --name "Mountian Biking at Coast" --range today
+#
+# This will connect to GoPro, download photos/videos taken today to the paths: 
+#    C:\Users\UserName\Videos\Mountian Biking at Coast\<Date>\<City State Country>\videos\ &
+#    C:\Users\UserName\Videos\Mountian Biking at Coast\<Date>\<City State Country>\photos\

@@ -64,7 +64,10 @@ func (format3) format(address *geo.Address) string {
 type format4 struct{}
 
 func (format4) format(address *geo.Address) string {
-	return fmt.Sprintf("%s %s %s %s", address.Suburb, address.City, address.State, address.Country)
+	if address.Suburb != address.City {
+		return fmt.Sprintf("%s %s %s %s", address.Suburb, address.City, address.State, address.Country)
+	}
+	return fmt.Sprintf("%s %s %s", address.City, address.State, address.Country)
 }
 
 func getPrettyAddress(format locationFormat, address *geo.Address) string {

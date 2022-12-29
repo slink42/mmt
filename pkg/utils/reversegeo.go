@@ -33,6 +33,7 @@ type locationFormat interface {
 	format(*geo.Address) string
 }
 
+// Location format option 1 - City State Country
 type format1 struct{}
 
 func (format1) format(address *geo.Address) string {
@@ -42,10 +43,28 @@ func (format1) format(address *geo.Address) string {
 	return fmt.Sprintf("%s %s", address.City, address.Country)
 }
 
+// Location format option 2 - Suburb State Country
 type format2 struct{}
 
 func (format2) format(address *geo.Address) string {
 	return address.Country
+}
+
+// Location format option 3 - Suburb State Country
+type format3 struct{}
+
+func (format3) format(address *geo.Address) string {
+	if len(address.Suburb) < 9 && address.State != "" {
+		return fmt.Sprintf("%s %s %s", address.Suburb, address.State, address.Country)
+	}
+	return fmt.Sprintf("%s %s", address.Suburb, address.Country)
+}
+
+// Location format option 4 - Suburb City State Country
+type format4 struct{}
+
+func (format4) format(address *geo.Address) string {
+	return fmt.Sprintf("%s %s %s %s", address.Suburb, address.City, address.State, address.Country)
 }
 
 func getPrettyAddress(format locationFormat, address *geo.Address) string {
@@ -66,6 +85,10 @@ func ReverseLocation(location Location) (string, error) {
 		return getPrettyAddress(format1{}, address), nil
 	case 2:
 		return getPrettyAddress(format2{}, address), nil
+	case 3:
+		return getPrettyAddress(format3{}, address), nil
+	case 4:
+		return getPrettyAddress(format4{}, address), nil
 	}
 	return getPrettyAddress(format1{}, address), nil
 }

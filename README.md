@@ -80,7 +80,7 @@ camera:
 model:
 ...
 location:
-  format: 1 # Different formats supported: 1 and 2 (default 1)
+  format: 1 # Different formats supported: 1 (City State Country), 2 (Country), 3 (Suburb State Country) and 4 (City Suburb State Country) (default 1)
   fallback: "NoLocation" # Leave empty to not make a folder for ungeolocated footage
   order: # Default order is:
   - date

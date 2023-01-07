@@ -63,7 +63,7 @@ DJI: Osmo Pocket 1/2, DJI Osmo Action 1/2/3, Mavics, Minis
 Android: All, but with Pixel 6 (Google Camera) specific fixes
 </INLINE>
 </FILE>
-<FILE Name="&plugin;/install/mmt_linux_amd64.tar.gz">
+<FILE Name="&plugin;/install/mmt_&mmtversion;_linux_amd64.tar.gz">
 <URL>&repo;/v&mmtversion;/mmt_&mmtversion;_linux_amd64.tar.gz</URL>
 </FILE>
 
@@ -76,8 +76,11 @@ Install script.
 	echo "+=============================================================================="
 	echo "| Installing &name;"
 	echo "+=============================================================================="
-	tar -vxzf &plugin;/install/mmt_1.5_linux_amd64.tar.gz mmt -C &plugin;/install
-	cp &plugin;/install/mmt /usr/sbin/mmt
+	echo "| Extracting &plugin;/install/mmt_&mmtversion;_linux_amd64.tar.gz to &plugin;/install/&mmtversion; ..." 
+	mkdir -p &plugin;/install/&mmtversion;
+	tar -vxzf &plugin;/install/mmt_&mmtversion;_linux_amd64.tar.gz -C &plugin;/install/&mmtversion;
+	echo "done"
+	cp &plugin;/install/&mmtversion;/mmt /usr/sbin/mmt
 	chown root:root /usr/sbin/mmt
 	chmod 755 /usr/sbin/mmt
 	echo ""

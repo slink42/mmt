@@ -92,7 +92,7 @@ echo "+=========================================================================
 rm -rf /usr/local/emhttp/plugins/&name;
 rm -rf /boot/config/plugins/&name;
 rm -rf /usr/sbin/&name;
-rm -rf /usr/sbin/mmt
+rm -rf /usr/sbin/ffmpeg
 
 
 echo ""

@@ -2,7 +2,7 @@
 
 <!-- PLUGIN DEFINITIONS -->
 <!DOCTYPE PLUGIN [
-	<!ENTITY name      "Media Management Tool">
+	<!ENTITY name      "media-management-tool">
 	<!ENTITY author    "slink42">
 	<!ENTITY version   "2023.01.07">
 	<!ENTITY mmtversion "1.5">
@@ -45,10 +45,8 @@
 
 <FILE Name="&emhttp;/README.md">
 <INLINE>
-**MMT**
+**Media Management Tool**
 
-Plexdrive allows you to mount your Google Drive account as fuse filesystem.
-The project is comparable to projects like [rclone](https://rclone.org/) or [node-gdrive-fuse](https://github.com/thejinx0r/node-gdrive-fuse), but optimized for media streaming e.g. with plex ;)
 I've been using an assortment of scripts over the years to manage media from my different action cameras and drones, it's clear a centralized and unified solution is needed.
 
 This tool draws inspiration from my dji-utils/offload.sh script as well as the popular gopro-linux tool and @deviantollam's dohpro
@@ -65,7 +63,7 @@ DJI: Osmo Pocket 1/2, DJI Osmo Action 1/2/3, Mavics, Minis
 Android: All, but with Pixel 6 (Google Camera) specific fixes
 </INLINE>
 </FILE>
-<FILE Name="&plugin;/install/mmt_&mmtversion;_linux_amd64.tar.gz">
+<FILE Name="&plugin;/install/mmt_linux_amd64.tar.gz">
 <URL>&repo;/v&mmtversion;/mmt_&mmtversion;_linux_amd64.tar.gz</URL>
 </FILE>
 
@@ -78,9 +76,10 @@ Install script.
 	echo "+=============================================================================="
 	echo "| Installing &name;"
 	echo "+=============================================================================="
-	echo "cp &plugin;/install/mmt_&mmtversion;_linux_amd64.tar.gz /usr/sbin/mmt_&mmtversion;_linux_amd64.tar.gz"
-	echo "chown root:root /usr/sbin/mmt"
-	echo "chmod 755 /usr/sbin/mmt"
+	tar -vxzf &plugin;/install/mmt_1.5_linux_amd64.tar.gz mmt -C &plugin;/install
+	cp &plugin;/install/mmt /usr/sbin/mmt
+	chown root:root /usr/sbin/mmt
+	chmod 755 /usr/sbin/mmt
 	echo ""
 	echo "-----------------------------------------------------------"
 	echo " &name; has been installed."

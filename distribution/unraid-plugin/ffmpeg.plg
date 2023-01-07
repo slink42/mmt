@@ -73,6 +73,11 @@ Install script.
 	cp &plugin;/install/ffmpeg-&ffmpegversion;-amd64-static/ffmpeg /usr/sbin/ffmpeg
 	chown root:root /usr/sbin/ffmpeg
 	chmod 755 /usr/sbin/ffmpeg
+	echo "ffmpeg added to /usr/sbin"
+	cp &plugin;/install/ffmpeg-&ffmpegversion;-amd64-static/ffprobe /usr/sbin/ffprobe
+	chown root:root /usr/sbin/ffprobe
+	chmod 755 /usr/sbin/ffprobe
+	echo "ffprobe added to /usr/sbin"
 	echo ""
 	echo "-----------------------------------------------------------"
 	echo " &name; has been installed."
@@ -93,6 +98,7 @@ rm -rf /usr/local/emhttp/plugins/&name;
 rm -rf /boot/config/plugins/&name;
 rm -rf /usr/sbin/&name;
 rm -rf /usr/sbin/ffmpeg
+rm -rf /usr/sbin/ffprobe
 
 
 echo ""

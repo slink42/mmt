@@ -5,8 +5,8 @@
 	<!ENTITY name      "Media Management Tool">
 	<!ENTITY author    "slink42">
 	<!ENTITY version   "2023.01.07">
-	<!ENTITY mmtversion "v1.5">
-	<!ENTITY repo      "https://github.com/KonradIT/mmt/releases/download/v1.5/mmt_1.5_darwin_amd64.tar.gz">
+	<!ENTITY mmtversion "1.5">
+	<!ENTITY repo      "https://github.com/KonradIT/mmt/releases/download">
 	<!ENTITY pluginURL "https://raw.githubusercontent.com/&author;/mmt/development/distribution/unraid-plugin/mmt.plg">
 	<!ENTITY plugin    "/boot/config/plugins/&name;">
 	<!ENTITY emhttp    "/usr/local/emhttp/plugins/&name;">
@@ -65,9 +65,8 @@ DJI: Osmo Pocket 1/2, DJI Osmo Action 1/2/3, Mavics, Minis
 Android: All, but with Pixel 6 (Google Camera) specific fixes
 </INLINE>
 </FILE>
-
-<FILE Name="&plugin;/install/mmt_1.5_linux_amd64.tar.gz">
-<URL>&repo;/&mmtversion;/mmt_1.5_linux_amd64.tar.gz</URL>
+<FILE Name="&plugin;/install/mmt_&mmtversion;_linux_amd64.tar.gz">
+<URL>&repo;/v&mmtversion;/mmt_&mmtversion;_linux_amd64.tar.gz</URL>
 </FILE>
 
 <!--
@@ -79,7 +78,7 @@ Install script.
 	echo "+=============================================================================="
 	echo "| Installing &name;"
 	echo "+=============================================================================="
-	echo "cp &plugin;/install/mmt_1.5_linux_amd64.tar.gz /usr/sbin/mmt_1.5_linux_amd64.tar.gz"
+	echo "cp &plugin;/install/mmt_&mmtversion;_linux_amd64.tar.gz /usr/sbin/mmt_&mmtversion;_linux_amd64.tar.gz"
 	echo "chown root:root /usr/sbin/mmt"
 	echo "chmod 755 /usr/sbin/mmt"
 	echo ""

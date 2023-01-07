@@ -3,7 +3,7 @@
 <!-- PLUGIN DEFINITIONS -->
 <!DOCTYPE PLUGIN [
 	<!ENTITY name      "ffmpeg">
-	<!ENTITY author    "johnvansickle">
+	<!ENTITY author    "slink42">
 	<!ENTITY version   "2023.01.07">
 	<!ENTITY ffmpegversion "5.1.1">
 	<!ENTITY repo      "https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz">
